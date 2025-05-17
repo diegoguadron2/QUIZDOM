@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Datos del quiz
     const quizData = [
         {
-            question: "¿Qué método se usa para seleccionar un elemento por su ID?",
+            question: "1. ¿Qué método se usa para seleccionar un elemento por su ID?",
             options: [
                 { text: "document.querySelectorAll()", correct: false },
                 { text: "document.getElementsByClassName()", correct: false },
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         {
-            question: "¿Qué propiedad se usa para modificar el contenido HTML de un elemento?",
+            question: "2. ¿Qué propiedad se usa para modificar el contenido HTML de un elemento?",
             options: [
                 { text: "innerHTML", correct: true },
                 { text: "value", correct: false },
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         {
-            question: "¿Qué evento se activa cuando un usuario hace clic en un elemento?",
+            question: "3. ¿Qué evento se activa cuando un usuario hace clic en un elemento?",
             options: [
                 { text: "hover", correct: false },
                 { text: "keydown", correct: false },
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         {
-            question: "¿Cómo se agrega un nuevo elemento al DOM?",
+            question: "4. ¿Cómo se agrega un nuevo elemento al DOM?",
             options: [
                 { text: "document.createElement() seguido de appendChild()", correct: true },
                 { text: "Mediante alert()", correct: false },
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         {
-            question: "¿Qué método selecciona todos los elementos que coinciden con un selector CSS?",
+            question: "5. ¿Qué método selecciona todos los elementos que coinciden con un selector CSS?",
             options: [
                 { text: "getElementById()", correct: false },
                 { text: "querySelectorAll()", correct: true },
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         {
-            question: "¿De qué manera puedes detectar que un botón ha sido presionado?",
+            question: "6. ¿De qué manera puedes detectar que un botón ha sido presionado?",
             options: [
                 { text: "eventClick()", correct: false },
                 { text: "addEventListener()", correct: true },
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         {
-            question: "¿Qué propiedad se usa para acceder o cambiar el valor de un input?",
+            question: "7. ¿Qué propiedad se usa para acceder o cambiar el valor de un input?",
             options: [
                 { text: "inputText", correct: false },
                 { text: "textContent", correct: false },
@@ -102,6 +102,71 @@ document.addEventListener('DOMContentLoaded', function () {
             feedback: {
                 correct: "Correcto. La propiedad 'value' permite leer o cambiar el contenido de un input.",
                 incorrect: "Incorrecto. La propiedad correcta es 'value'."
+            }
+        },
+        {
+            question: "8. ¿Qué método se utiliza para recorrer cada elemento de un arreglo en JavaScript?",
+            options: [
+                { text: "inputText", correct: false },
+                { text: "forEach", correct: true },
+                { text: "innerHTML", correct: false },
+                { text: "value", correct: false }
+            ],
+            feedback: {
+                correct: "Correcto. El método forEach permite recorrer todos los elementos de un arreglo.",
+                incorrect: "Incorrecto. La forma correcta de recorrer un arreglo es usando el método forEach."
+            }
+        },
+        {
+            question: "9. ¿Cuál es el evento que se activa cuando el valor de un elemento de formulario cambia?",
+            options: [
+                { text: "onchange", correct: true },
+                { text: "onclick", correct: false },
+                { text: "onload", correct: false },
+                { text: "onsubmit", correct: false }
+            ],
+            feedback: {
+                correct: "Correcto. El evento 'onchange' se activa cuando se modifica el valor de un elemento.",
+                incorrect: "Incorrecto. El evento correcto es 'onchange'."
+            }
+        },
+        {
+            question: "10. ¿Para qué se utilizan las Media Queries en CSS?",
+            options: [
+                { text: "Para declarar variables en hojas de estilo", correct: false },
+                { text: "Para aplicar estilos según el tipo y tamaño de pantalla del dispositivo", correct: true },
+                { text: "Para crear animaciones con JavaScript", correct: false },
+                { text: "Para cambiar el contenido HTML desde CSS", correct: false }
+            ],
+            feedback: {
+                correct: "Correcto. Las Media Queries permiten aplicar estilos condicionales según el tamaño o características del dispositivo.",
+                incorrect: "Incorrecto. Las Media Queries se usan para adaptar el diseño al tamaño de pantalla o dispositivo."
+            }
+        },
+        {
+            question: "11. ¿Cuál es la diferencia principal entre las palabras clave 'let' y 'const' en JavaScript?",
+            options: [
+                { text: "'let' no permite reasignar el valor, pero 'const' sí", correct: false },
+                { text: "'const' se puede usar solo dentro de funciones, 'let' no", correct: false },
+                { text: "'let' declara una variable que puede cambiar, 'const' declara una constante que no cambia", correct: true },
+                { text: "Ambas se usan para declarar funciones, no variables", correct: false }
+            ],
+            feedback: {
+                correct: "Correcto. 'let' permite reasignar el valor, mientras que 'const' define una constante que no se puede cambiar.",
+                incorrect: "Incorrecto. La respuesta correcta es que 'let' permite cambios y 'const' define valores que no deben cambiar."
+            }
+        },
+        {
+            question: "12. ¿Cuál de las siguientes es una estructura de bucle en JavaScript?",
+            options: [
+                { text: "if", correct: false },
+                { text: "switch", correct: false },
+                { text: "try", correct: false },
+                { text: "for", correct: true }
+            ],
+            feedback: {
+                correct: "Correcto. 'for' es una estructura de bucle que permite repetir un bloque de código varias veces.",
+                incorrect: "Incorrecto. La respuesta correcta es 'for', que se utiliza para repetir instrucciones en un ciclo."
             }
         }
     ];
