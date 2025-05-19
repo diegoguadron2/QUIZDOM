@@ -11,15 +11,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const currentQuestionSpan = document.getElementById('actual-pregunta');
     const totalQuestionsSpan = document.getElementById('total-preguntas');
 
+    const resultadoTest = document.getElementById('resultadoTest');
+    let puntuacion = 0;
+
     // Datos del quiz
     const quizData = [
         {
             question: "1. ¿Qué método se usa para seleccionar un elemento por su ID?",
             options: [
-                { text: "document.querySelectorAll()", correct: false },
-                { text: "document.getElementsByClassName()", correct: false },
-                { text: "document.getElementById()", correct: true },
-                { text: "document.getTagName()", correct: false }
+                { text: ".querySelectorAll()", correct: false },
+                { text: ".getElementsByClassName()", correct: false },
+                { text: ".getElementById()", correct: true },
+                { text: ".getTagName()", correct: false }
             ],
             feedback: {
                 correct: "¡Correcto! getElementById permite seleccionar un elemento único por su ID.",
@@ -29,10 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             question: "2. ¿Qué propiedad se usa para modificar el contenido HTML de un elemento?",
             options: [
-                { text: "innerHTML", correct: true },
-                { text: "value", correct: false },
-                { text: "htmlContent", correct: false },
-                { text: "text()", correct: false }
+                { text: ".innerHTML", correct: true },
+                { text: ".value", correct: false },
+                { text: ".htmlContent", correct: false },
+                { text: ".text()", correct: false }
             ],
             feedback: {
                 correct: "Correcto. innerHTML te permite cambiar el contenido de un elemento.",
@@ -42,10 +45,10 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             question: "3. ¿Qué evento se activa cuando un usuario hace clic en un elemento?",
             options: [
-                { text: "hover", correct: false },
-                { text: "keydown", correct: false },
-                { text: "click", correct: true },
-                { text: "submit", correct: false }
+                { text: ".hover", correct: false },
+                { text: ".keydown", correct: false },
+                { text: ".click", correct: true },
+                { text: ".submit", correct: false }
             ],
             feedback: {
                 correct: "Correcto. El evento 'click' detecta cuando se hace clic.",
@@ -55,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             question: "4. ¿Cómo se agrega un nuevo elemento al DOM?",
             options: [
-                { text: "document.createElement() seguido de appendChild()", correct: true },
+                { text: ".createElement(), luego .appendChild()", correct: true },
                 { text: "Mediante alert()", correct: false },
                 { text: "Con setTimeout()", correct: false },
                 { text: "Usando innerText", correct: false }
@@ -68,10 +71,10 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             question: "5. ¿Qué método selecciona todos los elementos que coinciden con un selector CSS?",
             options: [
-                { text: "getElementById()", correct: false },
-                { text: "querySelectorAll()", correct: true },
-                { text: "getElementByTag()", correct: false },
-                { text: "querySelector()", correct: false }
+                { text: ".getElementById()", correct: false },
+                { text: ".querySelectorAll()", correct: true },
+                { text: ".getElementByTag()", correct: false },
+                { text: ".querySelector()", correct: false }
             ],
             feedback: {
                 correct: "¡Correcto! querySelectorAll devuelve todos los elementos que coincidan.",
@@ -81,10 +84,10 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             question: "6. ¿De qué manera puedes detectar que un botón ha sido presionado?",
             options: [
-                { text: "eventClick()", correct: false },
-                { text: "addEventListener()", correct: true },
-                { text: "triggerEvent()", correct: false },
-                { text: "alert()", correct: false }
+                { text: ".eventClick()", correct: false },
+                { text: ".addEventListener()", correct: true },
+                { text: ".triggerEvent()", correct: false },
+                { text: ".alert()", correct: false }
             ],
             feedback: {
                 correct: "Correcto. addEventListener es la forma estándar.",
@@ -94,10 +97,10 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             question: "7. ¿Qué propiedad se usa para acceder o cambiar el valor de un input?",
             options: [
-                { text: "inputText", correct: false },
-                { text: "textContent", correct: false },
-                { text: "innerHTML", correct: false },
-                { text: "value", correct: true }
+                { text: ".inputText", correct: false },
+                { text: ".textContent", correct: false },
+                { text: ".innerHTML", correct: false },
+                { text: ".value", correct: true }
             ],
             feedback: {
                 correct: "Correcto. La propiedad 'value' permite leer o cambiar el contenido de un input.",
@@ -107,10 +110,10 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             question: "8. ¿Qué método se utiliza para recorrer cada elemento de un arreglo en JavaScript?",
             options: [
-                { text: "inputText", correct: false },
-                { text: "forEach", correct: true },
-                { text: "innerHTML", correct: false },
-                { text: "value", correct: false }
+                { text: ".inputText", correct: false },
+                { text: ".forEach", correct: true },
+                { text: ".innerHTML", correct: false },
+                { text: ".value", correct: false }
             ],
             feedback: {
                 correct: "Correcto. El método forEach permite recorrer todos los elementos de un arreglo.",
@@ -120,44 +123,44 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             question: "9. ¿Cuál es el evento que se activa cuando el valor de un elemento de formulario cambia?",
             options: [
-                { text: "onchange", correct: true },
-                { text: "onclick", correct: false },
-                { text: "onload", correct: false },
-                { text: "onsubmit", correct: false }
+                { text: ".onchange", correct: true },
+                { text: ".onclick", correct: false },
+                { text: ".onload", correct: false },
+                { text: ".onsubmit", correct: false }
             ],
             feedback: {
                 correct: "Correcto. El evento 'onchange' se activa cuando se modifica el valor de un elemento.",
                 incorrect: "Incorrecto. El evento correcto es 'onchange'."
             }
         },
+        // {
+        //     question: "10. ¿Para qué se utilizan las Media Queries en CSS?",
+        //     options: [
+        //         { text: "Para declarar variables en hojas de estilo", correct: false },
+        //         { text: "Para aplicar estilos según el tamaño de pantalla del dispositivo", correct: true },
+        //         { text: "Para crear animaciones con JavaScript", correct: false },
+        //         { text: "Para cambiar el contenido HTML desde CSS", correct: false }
+        //     ],
+        //     feedback: {
+        //         correct: "Correcto. Las Media Queries permiten aplicar estilos condicionales según el tamaño o características del dispositivo.",
+        //         incorrect: "Incorrecto. Las Media Queries se usan para adaptar el diseño al tamaño de pantalla o dispositivo."
+        //     }
+        // },
+        // {
+        //     question: "11. ¿Cuál es la diferencia principal entre las palabras clave 'let' y 'const' en JavaScript?",
+        //     options: [
+        //         { text: "'let' no permite reasignar el valor, pero 'const' sí", correct: false },
+        //         { text: "'const' se puede usar solo dentro de funciones, 'let' no", correct: false },
+        //         { text: "'let' declara una variable que puede cambiar, 'const' declara una constante que no cambia", correct: true },
+        //         { text: "Ambas se usan para declarar funciones, no variables", correct: false }
+        //     ],
+        //     feedback: {
+        //         correct: "Correcto. 'let' permite reasignar el valor, mientras que 'const' define una constante que no se puede cambiar.",
+        //         incorrect: "Incorrecto. La respuesta correcta es que 'let' permite cambios y 'const' define valores que no deben cambiar."
+        //     }
+        // },
         {
-            question: "10. ¿Para qué se utilizan las Media Queries en CSS?",
-            options: [
-                { text: "Para declarar variables en hojas de estilo", correct: false },
-                { text: "Para aplicar estilos según el tipo y tamaño de pantalla del dispositivo", correct: true },
-                { text: "Para crear animaciones con JavaScript", correct: false },
-                { text: "Para cambiar el contenido HTML desde CSS", correct: false }
-            ],
-            feedback: {
-                correct: "Correcto. Las Media Queries permiten aplicar estilos condicionales según el tamaño o características del dispositivo.",
-                incorrect: "Incorrecto. Las Media Queries se usan para adaptar el diseño al tamaño de pantalla o dispositivo."
-            }
-        },
-        {
-            question: "11. ¿Cuál es la diferencia principal entre las palabras clave 'let' y 'const' en JavaScript?",
-            options: [
-                { text: "'let' no permite reasignar el valor, pero 'const' sí", correct: false },
-                { text: "'const' se puede usar solo dentro de funciones, 'let' no", correct: false },
-                { text: "'let' declara una variable que puede cambiar, 'const' declara una constante que no cambia", correct: true },
-                { text: "Ambas se usan para declarar funciones, no variables", correct: false }
-            ],
-            feedback: {
-                correct: "Correcto. 'let' permite reasignar el valor, mientras que 'const' define una constante que no se puede cambiar.",
-                incorrect: "Incorrecto. La respuesta correcta es que 'let' permite cambios y 'const' define valores que no deben cambiar."
-            }
-        },
-        {
-            question: "12. ¿Cuál de las siguientes es una estructura de bucle en JavaScript?",
+            question: "10. ¿Cuál de las siguientes es una estructura de bucle en JavaScript?",
             options: [
                 { text: "if", correct: false },
                 { text: "switch", correct: false },
@@ -182,7 +185,9 @@ document.addEventListener('DOMContentLoaded', function () {
         restartBtn.classList.add('d-none');
 
         if (index >= quizData.length) {
-            questionText.textContent = `¡Quiz completado! Puntuación: ${score}/${quizData.length}`;
+            puntuacion = (score * 10)/quizData.length
+            questionText.textContent = `¡Quiz completado! \nTotal aciertos: ${score}/${quizData.length} tu puntuacion fue de: ${puntuacion}`;
+            resultadoTest.className = 'text-center';
             optionsContainer.innerHTML = '';
             feedbackContainer.classList.add('d-none');
             restartBtn.classList.remove('d-none');
@@ -195,14 +200,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
         optionsContainer.innerHTML = '';
 
-        question.options.forEach(option => {
+        question.options.forEach((option, i) => {
             const btn = document.createElement('button');
-            btn.className = 'btn btn-outline-light text-start py-2';
-            btn.textContent = option.text;
+            btn.className = 'btn btn-outline-light text-start py-3 flex items-center w-100 px-2';
+
+            const letra = String.fromCharCode(65 + i); // A, B, C, D
+
+            // span de la letra con estilo
+            const spanLetra = document.createElement('span');
+            spanLetra.textContent = letra;
+            spanLetra.className = 'rounded-1 px-3 py-2 bg-white text-primary fw-bold me-2';
+
+            // nodo de texto para la opción
+            const textoOpcion = document.createTextNode(option.text);
+
+            btn.appendChild(spanLetra);
+            btn.appendChild(textoOpcion);
+
             btn.dataset.correct = option.correct;
             btn.addEventListener('click', selectOption);
             optionsContainer.appendChild(btn);
         });
+
 
         feedbackContainer.classList.add('d-none');
     }
