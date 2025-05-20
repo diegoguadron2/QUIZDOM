@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Cargar pregunta
     function loadQuestion(index) {
-        restartBtn.classList.add('d-none');
+        // restartBtn.classList.add('d-none');
 
         if (index >= currentQuiz.questions.length) {
             const puntuacion = (score * 10) / currentQuiz.questions.length;
@@ -150,7 +150,12 @@ document.addEventListener('DOMContentLoaded', function () {
             resultadoTest.className = 'text-center';
             optionsContainer.innerHTML = '';
             feedbackContainer.classList.add('d-none');
-            restartBtn.classList.remove('d-none');
+
+            // regresamos a la primera vista para seleccionar los temas 
+            backToThemesBtn.addEventListener('click', function() {
+                quizContainer.classList.add('d-none');
+                themeSelection.classList.remove('d-none');
+            });backToThemesBtn.classList.remove('d-none');
             return;
         }
 
@@ -214,19 +219,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Siguiente pregunta
+    nextBtn.className = 'btn btn-primary w-100';
+    nextBtn.style.height = '50px'
     nextBtn.addEventListener('click', function() {
         currentQuestionIndex++;
         loadQuestion(currentQuestionIndex);
     });
 
-    // Reiniciar quiz
-    restartBtn.addEventListener('click', function() {
-        startQuiz();
-    });
-
-    // Volver a temas
-    backToThemesBtn.addEventListener('click', function() {
-        quizContainer.classList.add('d-none');
-        themeSelection.classList.remove('d-none');
-    });
 });

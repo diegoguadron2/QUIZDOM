@@ -1,0 +1,46 @@
+/* Import all of Bootstrap’s CSS */
+@import "bootstrap/scss/bootstrap";
+
+body{
+    background-image: url('https://res.cloudinary.com/dy6x06uoe/image/upload/v1747587075/Dise%C3%B1o_sin_t%C3%ADtulo_t8bbmi.svg');
+    background-position: left top;
+}
+
+.btn-container{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.btn-primary-styled{
+    background-color: #3C4C67;
+    border: none;
+    height: 75px;
+}
+
+.btn-primary-styled:hover{
+    background-color: #556c94;
+}
+
+.icon-content-html{
+    background-color: #DD4B25;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.icon-content-css{
+    background-color: #2D51EC;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.icon-content-js{
+    background-color: #F7CF00;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+@media (min-width: 768px) {
+    .btn-container{
+        width: 70%;
+    }
+}

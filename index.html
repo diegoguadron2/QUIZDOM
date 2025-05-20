@@ -1,63 +1,90 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Interactivo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon"
+        href="https://cdn3d.iconscout.com/3d/premium/thumb/dialogue-question-3d-icon-download-in-png-blend-fbx-gltf-file-formats--box-ignorance-chat-mail-symbol-mark-pack-network-communication-icons-6963911.png"
+        type="image/x-icon">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./src/scss/style.scss">
 
 
 </head>
+
 <body>
     <main class="min-vh-100 d-flex justify-content-center align-items-center">
-        <div class="container">
+        <section class="container">
             <!-- Pantalla de selección de tema -->
-            <div id="theme-selection" class="row justify-content-center">
-                <div class="col-lg-6 text-center text-white">
-                    <h2 class="mb-4">Selecciona un tema</h2>
-                    <div class="d-grid gap-3">
-                        <button class="btn btn-primary btn-lg theme-btn" data-theme="html">HTML</button>
-                        <button class="btn btn-primary btn-lg theme-btn" data-theme="javascript">JavaScript</button>
-                        <button class="btn btn-primary btn-lg theme-btn" data-theme="css">CSS</button>
+            <article id="theme-selection" class="row justify-content-center">
+                <div class="col-lg-10 text-center text-lg-start text-white d-lg-flex gap-4">
+                    <div>
+                        <h1 class="mb-4">Bienvenido al <span class="fw-bold">Quiz de Front-End</span></h1>
+                        <p>Elije un tema antes de comezar</p>
+                    </div>
+                    <div class="d-grid gap-3 btn-container">
+                        <button class="btn btn-primary-styled btn-lg theme-btn d-flex align-items-center justify-content-start gap-3 fw-bold" data-theme="html">
+                            <span class="icon-content-html"><img src="https://res.cloudinary.com/dy6x06uoe/image/upload/v1747765569/html-5_rdkkdm.png" alt=""></span>
+                            HTML
+                        </button>
+                        <button class="btn btn-primary-styled btn-lg theme-btn d-flex align-items-center justify-content-start gap-3 fw-bold" data-theme="css">
+                            <span class="icon-content-css"><img src="https://res.cloudinary.com/dy6x06uoe/image/upload/v1747765569/files_zsiot5.png" alt=""></span>
+                            CSS
+                        </button>
+                        <button class="btn btn-primary-styled btn-lg theme-btn d-flex align-items-center justify-content-start gap-3 fw-bold" data-theme="javascript">
+                            <span class="icon-content-js"><img src="https://res.cloudinary.com/dy6x06uoe/image/upload/v1747765569/file_i7h7et.png" alt=""></span>
+                            JavaScript
+                        </button>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- Pantalla del quiz (inicialmente oculta) -->
             <div id="quiz-container" class="row justify-content-center d-none">
-                <div class="col-lg-8">
-                    <div class="bg-dark text-white py-4 p-lg-5 rounded-3">
-                        <div class="row align-items-center">
-                            <!-- Columna izquierda - Pregunta -->
-                            <div class="col-lg-6 py-md-4" id="resultadoTest">
-                                <button id="back-to-themes" class="btn btn-outline-light mb-3">← Volver a temas</button>
-                                <p class="mb-2">Pregunta <span id="actual-pregunta">1</span> de <span id="total-preguntas">12</span></p>
-                                <h3 id="pregunta-text" class="fw-bold mb-4 text-light">Pregunta 1</h3>
-                                <button id="restart-btn" class="btn btn-outline-warning mt-3 d-none">Reiniciar Quiz</button>
-                            </div>
-    
-                            <!-- Columna derecha - Opciones -->
-                            <div class="col-lg-6">
-                                <div id="opciones-container" class="d-grid gap-2">
-                                    <!-- Las opciones se insertarán aquí mediante JavaScript -->
-                                </div>
-                                <!-- Contenedor de feedback -->
-                                <div id="feedback-container" class="mt-4 d-none">
-                                    <div id="feedback-message" class="alert d-flex align-items-center mb-3">
-                                        <span id="feedback-icon" class="me-2"></span>
-                                        <span id="feedback-text"></span>
+                <section class="min-vh-100 d-flex justify-content-center align-items-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <!-- col -->
+                            <div>
+
+                                <div class="text-white py-4 p-lg-5 rounded-3">
+                                    <div class="row align-items-center">
+                                        <!-- Columna izquierda - Pregunta -->
+                                        <div class="col-lg-6 py-md-4" id="resultadoTest">
+                                            <p class="mb-2">Pregunta <span id="actual-pregunta">1</span> de <span
+                                                    id="total-preguntas">12</span></p>
+                                            <h3 id="pregunta-text" class="fw-bold mb-4 text-light">Pregunta 1</h3>
+                                            <!-- Botón de volver al temario (visible solo al final) -->
+                                            <button id="back-to-themes"
+                                                class="btn btn-outline-warning mt-3 d-none">Jugar de nuevo!</button>
+                                        </div>
+
+                                        <!-- Columna derecha - Opciones -->
+                                        <div class="col-lg-6">
+                                            <div id="opciones-container" class="d-grid gap-2">
+                                                <!-- Las opciones se insertarán aquí mediante JavaScript -->
+                                            </div>
+                                            <!-- Contenedor de feedback -->
+                                            <div id="feedback-container" class="mt-4 d-none">
+                                                <div id="feedback-message" class="alert d-flex align-items-center mb-3">
+                                                    <span id="feedback-icon" class="me-2"></span>
+                                                    <span id="feedback-text"></span>
+                                                </div>
+                                                <button id="next-btn" class="btn btn-primary-styled w-100">Siguiente
+                                                    Pregunta</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <button id="next-btn" class="btn btn-primary w-100">Siguiente Pregunta</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
-        </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="main.js"></script>
+    <script src="./src/main.js"></script>
 </body>
+
 </html>
