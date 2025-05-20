@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     // Elementos del DOM
     const themeSelection = document.getElementById('theme-selection');
