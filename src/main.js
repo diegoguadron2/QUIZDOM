@@ -46,6 +46,58 @@ document.addEventListener('DOMContentLoaded', function () {
                         incorrect: "Incorrecto. El elemento raíz es <html>."
                     }
                 },
+                {
+                    question: "3. ¿Cuál atributo se usa para especificar la dirección de una imagen en HTML?",
+                    options: [
+                        { text: "src", correct: true },
+                        { text: "href", correct: false },
+                        { text: "link", correct: false },
+                        { text: "alt", correct: false }
+                    ],
+                    feedback: {
+                        correct: "¡Correcto! El atributo 'src' indica la ubicación de la imagen.",
+                        incorrect: "Incorrecto. El atributo correcto es 'src'."
+                    }
+                },
+                {
+                    question: "4. ¿Qué etiqueta define un campo de entrada en un formulario?",
+                    options: [
+                        { text: "<form>", correct: false },
+                        { text: "<field>", correct: false },
+                        { text: "<input>", correct: true },
+                        { text: "<text>", correct: false }
+                    ],
+                    feedback: {
+                        correct: "¡Correcto! <input> define un campo de entrada.",
+                        incorrect: "Incorrecto. La etiqueta correcta es <input>."
+                    }
+                },
+                {
+                    question: "5. ¿Qué etiqueta se utiliza para crear un hipervínculo en HTML?",
+                    options: [
+                        { text: "<link>", correct: false },
+                        { text: "<href>", correct: false },
+                        { text: "<url>", correct: false },
+                        { text: "<a>", correct: true }
+                    ],
+                    feedback: {
+                        correct: "¡Correcto! La etiqueta <a> se usa para enlaces.",
+                        incorrect: "Incorrecto. La etiqueta correcta es <a>."
+                    }
+                },
+                {
+                    question: "6. ¿Qué etiqueta se utiliza para insertar un salto de línea?",
+                    options: [
+                        { text: "<lb>", correct: false },
+                        { text: "<br>", correct: true },
+                        { text: "<break>", correct: false },
+                        { text: "<newline>", correct: false }
+                    ],
+                    feedback: {
+                        correct: "¡Correcto! <br> se usa para saltos de línea.",
+                        incorrect: "Incorrecto. La etiqueta correcta es <br>."
+                    }
+                }
             ]
         },
         javascript: {
@@ -75,6 +127,58 @@ document.addEventListener('DOMContentLoaded', function () {
                     feedback: {
                         correct: "Correcto. innerHTML te permite cambiar el contenido de un elemento.",
                         incorrect: "Incorrecto. La propiedad correcta es innerHTML."
+                    }
+                },
+                {
+                    question: "3. ¿Cuál de los siguientes es un bucle en JavaScript?",
+                    options: [
+                        { text: "repeat", correct: false },
+                        { text: "while", correct: true },
+                        { text: "loop", correct: false },
+                        { text: "iterate", correct: false }
+                    ],
+                    feedback: {
+                        correct: "¡Correcto! while es una estructura de bucle en JavaScript.",
+                        incorrect: "Incorrecto. El bucle correcto es while."
+                    }
+                },
+                {
+                    question: "4. ¿Qué método convierte una cadena a número en JavaScript?",
+                    options: [
+                        { text: "toNumber()", correct: false },
+                        { text: "parseString()", correct: false },
+                        { text: "parseInt()", correct: true },
+                        { text: "stringToNum()", correct: false }
+                    ],
+                    feedback: {
+                        correct: "¡Correcto! parseInt() convierte una cadena a número entero.",
+                        incorrect: "Incorrecto. El método correcto es parseInt()."
+                    }
+                },
+                {
+                    question: "5. ¿Qué método se usa para agregar un elemento al final de un arreglo?",
+                    options: [
+                        { text: "add()", correct: false },
+                        { text: "append()", correct: false },
+                        { text: "insert()", correct: false },
+                        { text: "push()", correct: true }
+                    ],
+                    feedback: {
+                        correct: "¡Correcto! push() agrega un elemento al final de un arreglo.",
+                        incorrect: "Incorrecto. El método correcto es push()."
+                    }
+                },
+                {
+                    question: "6. ¿Qué operador lógico se usa para 'y' en JavaScript?",
+                    options: [
+                        { text: "||", correct: false },
+                        { text: "&&", correct: true },
+                        { text: "&", correct: false },
+                        { text: "and", correct: false }
+                    ],
+                    feedback: {
+                        correct: "¡Correcto! El operador lógico 'y' es &&.",
+                        incorrect: "Incorrecto. El operador correcto es &&."
                     }
                 }
             ]
@@ -106,6 +210,58 @@ document.addEventListener('DOMContentLoaded', function () {
                     feedback: {
                         correct: "Correcto. La propiedad 'color' cambia el color del texto.",
                         incorrect: "Incorrecto. La propiedad correcta es 'color'."
+                    }
+                },
+                {
+                    question: "3. ¿Qué propiedad se usa para definir un contenedor como grid en CSS?",
+                    options: [
+                        { text: "display: block;", correct: false },
+                        { text: "display: flex;", correct: false },
+                        { text: "display: grid;", correct: true },
+                        { text: "position: grid;", correct: false }
+                    ],
+                    feedback: {
+                        correct: "¡Correcto! Para activar Grid se usa 'display: grid;'.",
+                        incorrect: "Incorrecto. La propiedad correcta es 'display: grid;'."
+                    }
+                },
+                {
+                    question: "4. ¿Cuál es la propiedad para cambiar el tamaño de fuente en CSS?",
+                    options: [
+                        { text: "font-size", correct: true },
+                        { text: "font-style", correct: false },
+                        { text: "font-weight", correct: false },
+                        { text: "text-size", correct: false }
+                    ],
+                    feedback: {
+                        correct: "¡Correcto! 'font-size' ajusta el tamaño de la fuente.",
+                        incorrect: "Incorrecto. La propiedad correcta es 'font-size'."
+                    }
+                },
+                {
+                    question: "5. ¿Qué selector se usa para aplicar estilos a un elemento con un ID?",
+                    options: [
+                        { text: ".", correct: false },
+                        { text: "#", correct: true },
+                        { text: "*", correct: false },
+                        { text: "/", correct: false }
+                    ],
+                    feedback: {
+                        correct: "¡Correcto! El símbolo '#' se usa para seleccionar un ID.",
+                        incorrect: "Incorrecto. Se usa '#' para seleccionar elementos por ID."
+                    }
+                },
+                {
+                    question: "6. ¿Cuál propiedad CSS controla el espacio exterior de un elemento?",
+                    options: [
+                        { text: "margin", correct: true },
+                        { text: "padding", correct: false },
+                        { text: "border", correct: false },
+                        { text: "spacing", correct: false }
+                    ],
+                    feedback: {
+                        correct: "¡Correcto! 'margin' define el espacio exterior del elemento.",
+                        incorrect: "Incorrecto. La propiedad correcta es 'margin'."
                     }
                 }
             ]
