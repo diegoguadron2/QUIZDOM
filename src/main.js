@@ -294,6 +294,7 @@ document.addEventListener('DOMContentLoaded', function () {
         currentQuestionIndex = 0;
         score = 0;
         loadQuestion(currentQuestionIndex);
+        Updateprogressbar(currentQuestionIndex);
     }
 
     // Cargar pregunta
@@ -379,7 +380,17 @@ document.addEventListener('DOMContentLoaded', function () {
     nextBtn.style.height = '50px'
     nextBtn.addEventListener('click', function() {
         currentQuestionIndex++;
+        Updateprogressbar(currentQuestionIndex);
         loadQuestion(currentQuestionIndex);
     });
 
+    // Control de la barra de progreso
+    function Updateprogressbar(pregunta) {
+    let total = totalQuestionsSpan.textContent;
+    const progreso = Math.round((pregunta / total) * 100);
+    const progressBar = document.getElementById('quiz-progress-bar');
+    progressBar.style.width = `${progreso}%`;
+    progressBar.setAttribute('aria-valuenow', progreso);
+    progressBar.textContent = `${progreso}%`;
+    }
 });
