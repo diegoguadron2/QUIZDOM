@@ -1,8 +1,9 @@
 export default {
   base: '/',
   build: {
-    outDir: 'dist', // Esta es la carpeta por defecto
+    outDir: 'dist', 
   },
+  emptyOutDir: true,
   // Optional: Silence Sass deprecation warnings. See note below.
   css: {
      preprocessorOptions: {
